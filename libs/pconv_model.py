@@ -265,9 +265,10 @@ class PConvUnet(object):
         self.compile_pconv_unet(self.model, inputs_mask, lr) 
 
         # Load weights into model
-        epoch = int(os.path.basename(filepath).split('.')[1].split('-')[0])
-        assert epoch > 0, "Could not parse weight file. Should include the epoch"
-        self.current_epoch = epoch
+        if not self.inference_only:
+            epoch = int(os.path.basename(filepath).split('.')[1].split('-')[0])
+            assert epoch > 0, "Could not parse weight file. Should include the epoch"
+            self.current_epoch = epoch
         self.model.load_weights(filepath)        
 
     @staticmethod
