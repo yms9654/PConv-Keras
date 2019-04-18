@@ -4,9 +4,11 @@ python realtime.py data/images/05.jpg
 ```
   
 #### Original Image  
-<img src='./data/images/05.jpg' />
+<img src='./data/images/05.jpg' />  
+
 #### Damaged Image  
-<img src='./data/images/05_input.png' />
+<img src='./data/images/05_input.png' />  
+
 #### Result Image  
 <img src='./data/images/05_result.png' />
 
