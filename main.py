@@ -15,6 +15,8 @@ from keras import backend as K
 from keras.utils import Sequence
 from keras_tqdm import TQDMCallback
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.ticker import NullFormatter
 
@@ -158,7 +160,7 @@ if __name__ == '__main__':
         MaskGenerator(512, 512, 3), 
         target_size=(512, 512), 
         batch_size=args.batch_size, 
-        classes=['val'], 
+        classes=['class'], 
         seed=42
     )
 
@@ -213,10 +215,10 @@ if __name__ == '__main__':
     # Fit model
     model.fit_generator(
         train_generator, 
-        steps_per_epoch=10000,
+        steps_per_epoch=14406,
         validation_data=val_generator,
-        validation_steps=1000,
-        epochs=100,  
+        validation_steps=3600,
+        epochs=10,  
         verbose=0,
         callbacks=[
             TensorBoard(
